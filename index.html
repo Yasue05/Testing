@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Monthsary, Beautiful!</title>
+    <style>
+        :root {
+            --primary-pink: #ff7597;
+            --soft-pink: #ffeef2;
+            --dark-pink: #c93b61;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--soft-pink);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px 20px;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        h1 {
+            color: var(--dark-pink);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            20% { transform: scale(1.05); }
+            40% { transform: scale(1); }
+            60% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .date {
+            font-style: italic;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        /* Photo Placeholder - Replace URL with your own picture later! */
+        .photo-frame {
+            width: 100%;
+            height: 300px;
+            background-image: url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=600'); 
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border: 5px solid white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .love-letter {
+            line-height: 1.6;
+            font-size: 1.1rem;
+            color: #555;
+            text-align: left;
+            margin-bottom: 30px;
+            white-space: pre-line;
+        }
+
+        .btn {
+            background-color: var(--primary-pink);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(255, 117, 151, 0.3);
+        }
+
+        .btn:hover {
+            background-color: var(--dark-pink);
+            transform: translateY(-2px);
+        }
+
+        #surprise-message {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--dark-pink);
+            min-height: 30px;
+            transition: all 0.3s ease;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--primary-pink);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Happy Monthsary! 💖</h1>
+        <div class="date">To the most amazing girl in the world</div>
+
+        <!-- You can change this image link to a picture of you two! -->
+        <div class="photo-frame"></div>
+
+        <div class="love-letter">
+            Hi beautiful,
+
+            Happy monthsary! I just wanted to create this little space on the internet to remind you of how much you mean to me. 
+
+            Every single day with you is a blessing, and I am so incredibly grateful for all the laughs, the late-night talks, and the quiet moments we share. Thank you for being your wonderful, amazing self. 
+
+            Here's to us, and to many more months of making beautiful memories together. I love you!
+        </div>
+
+        <button class="btn" onclick="revealReason()">Click for a reason I love you</button>
+        <div id="surprise-message"></div>
+    </div>
+
+    <footer>Made with 🤍 just for you</footer>
+
+    <script>
+        const reasons = [
+            "Your beautiful smile that brightens up my entire day. ✨",
+            "The way you care so deeply about the people you love. 🥺",
+            "How safe and happy I feel whenever I talk to you. 🏠",
+            "Your laugh—it’s literally my favorite sound in the world. 🎵",
+            "The random, cute things you do when you don't think I'm looking. 🥰",
+            "You are my absolute best friend and my favorite person. 🏆"
+        ];
+
+        let lastIndex = -1;
+
+        function revealReason() {
+            let randomIndex;
+            // Prevent getting the same reason twice in a row
+            do {
+                randomIndex = Math.floor(Math.random() * reasons.length);
+            } while (randomIndex === lastIndex);
+            
+            lastIndex = randomIndex;
+            
+            const messageElement = document.getElementById('surprise-message');
+            messageElement.style.opacity = 0;
+            
+            setTimeout(() => {
+                messageElement.innerText = reasons[randomIndex];
+                messageElement.style.opacity = 1;
+            }, 200);
+        }
+    </script>
+</body>
+</html>
